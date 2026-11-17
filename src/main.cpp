@@ -15,9 +15,11 @@ ScreenManager screen(cursor);
 
 BluetoothA2DPSink bt_sink;
 
+esp_chip_info_t core_info;
+
 void setup() {
   Serial.begin(115200);
-  Serial.println("test 5 ---> general screen classes test");
+  Serial.println("test 6 ---> tef6686 first");
   delay(2000);
   Serial.print("[START TEST 5]\n");
 
@@ -80,7 +82,15 @@ void setup() {
   // });
   // bt_sink.start("ESP32-RADIODAC");
 
+  esp_chip_info(&core_info);
+
   Serial.println("ESP32 ready!");
+  Serial.println("CORE INFO");
+  Serial.printf("model: %i \n", core_info.model);
+  Serial.printf("feature: %i \n", core_info.features);
+  Serial.printf("full_revision: %i \n", core_info.full_revision);
+  Serial.printf("revision: %i \n", core_info.revision);
+  Serial.printf("cores: %i \n", core_info.cores);
 }
 
 void loop() {

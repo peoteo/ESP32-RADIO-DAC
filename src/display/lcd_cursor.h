@@ -24,8 +24,8 @@ private:
 	uint8_t _cols;
 
 	/* cursor position */
-	uint8_t _row;
-	uint8_t _col;
+	uint8_t _row = 0;
+	uint8_t _col = 0;
 
 	/* text offset (autoscroll effect) */
 	uint8_t _offset = 0;

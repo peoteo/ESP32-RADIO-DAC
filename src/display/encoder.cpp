@@ -62,12 +62,12 @@ void IRAM_ATTR Encoder::_read_rotation(void* arg) {
 
   if (encoder_val > 3) {
     taskENTER_CRITICAL_ISR(&encoder_inst->_mux);
-    encoder_inst->_delta = 1;
+    encoder_inst->_delta++;
     taskEXIT_CRITICAL_ISR(&encoder_inst->_mux);
     encoder_val = 0;
   } else if (encoder_val < -3) {
     taskENTER_CRITICAL_ISR(&encoder_inst->_mux);
-    encoder_inst->_delta = -1;
+    encoder_inst->_delta--;
     taskEXIT_CRITICAL_ISR(&encoder_inst->_mux);
     encoder_val = 0;
   }
